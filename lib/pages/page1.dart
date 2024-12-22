@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Page2 extends StatelessWidget {
-  const Page2({super.key, required this.a1, required this.a2});
+class Page1 extends StatelessWidget {
+  const Page1({super.key, required this.a1, required this.a2});
 
   final String a1;
   final String a2;
@@ -28,6 +28,6 @@ class Page2 extends StatelessWidget {
   }
 
   void _on(BuildContext context) {
-    Navigator.of(context).pushNamed("/page3");
+    Navigator.of(context).pushNamed("/page2");
   }
 }
