@@ -13,38 +13,41 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      //home: Page1(),
+      //home: P1()
       initialRoute: "/page1",
       routes: {
         "/page1": (BuildContext context) {
           return Page1(
-            a1: 'page 1',
-            a2: 'pop',
+            a1: 'page1',
+            a2: 'argumento 2',
+            a3: 'argumento 3',
+            a4: 'argumento 4',
           );
         },
         "/page2": (BuildContext context) {
           return Page2(
-            a1: 'page 2',
-            a2: 'pop',
+            a1: 'page2',
+            a2: 'argumento 2',
+            a3: 'argumento 3',
+            a4: 'argumento 4',
           );
         },
         "/page3": (BuildContext context) {
           return Page3(
-            a1: 'page 3',
+            a1: 'page3',
             a2: 'argumento 2',
-            a3: 'argumento 1',
+            a3: 'argumento 3',
             a4: 'argumento 4',
-            a5: 'argumento 5',
-            a6: 'argumento 6',
-            a7: 'argumento 7',
-            a8: 'argumento 8',
           );
         },
-        "/page4": (BuildContext contex) {
+        "/page4": (BuildContext context) {
           return Page4(
             a1: 'page4',
+            a2: 'argumento 2',
+            a3: 'argumento 3',
+            a4: 'argumento 4',
           );
-        }
+        },
       },
     );
   }

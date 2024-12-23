@@ -1,26 +1,54 @@
+//metodo sin el
+//   @override
+//  void initState() {
+//    super.initState();
+//    a1 = widget.a1;
+//  }
+
 import 'package:flutter/material.dart';
 
-class Page1 extends StatelessWidget {
-  const Page1({super.key, required this.a1, required this.a2});
-
+class Page1 extends StatefulWidget {
   final String a1;
   final String a2;
+  final String a3;
+  final String a4;
+
+  const Page1(
+      {super.key,
+      required this.a1,
+      required this.a2,
+      required this.a3,
+      required this.a4});
+
+  @override
+  State<Page1> createState() => _Page1State();
+}
+
+class _Page1State extends State<Page1> {
+  late String a1;
+  late String a2;
+  late String a3;
+  late String a4;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(a1),
+        title: Text(widget.a1),
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             OutlinedButton(
                 onPressed: () {
                   _on(context);
                 },
-                child: Icon(Icons.star)),
-            Text(a2)
+                child: Text("presiona")),
+            Text(widget.a2),
+            Text(widget.a3),
+            Text(widget.a4)
           ],
         ),
       ),
