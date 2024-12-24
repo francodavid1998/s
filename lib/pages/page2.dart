@@ -1,49 +1,25 @@
-//metodo con el
-//   @override
-//  void initState() {
-//    super.initState();
-//    a1 = widget.a1;
-//  }
+//pasar 1 variable por modalroute
 
 import 'package:flutter/material.dart';
 
 class Page2 extends StatefulWidget {
-  final String a1;
-  final String a2;
-  final String a3;
-  final String a4;
-
-  const Page2(
-      {super.key,
-      required this.a1,
-      required this.a2,
-      required this.a3,
-      required this.a4});
+  const Page2({
+    super.key,
+  });
 
   @override
   State<Page2> createState() => _Page2State();
 }
 
 class _Page2State extends State<Page2> {
-  late String a1;
-  late String a2;
-  late String a3;
-  late String a4;
-
-  @override
-  void initState() {
-    super.initState();
-    a1 = widget.a1;
-    a2 = widget.a2;
-    a3 = widget.a3;
-    a4 = widget.a4;
-  }
-
   @override
   Widget build(BuildContext context) {
+    //si no logra pasar la variable causa error
+    final a1 = ModalRoute.of(context)?.settings.arguments as String;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(a1),
+        title: Text("page2"),
       ),
       body: Center(
         child: Column(
@@ -54,10 +30,7 @@ class _Page2State extends State<Page2> {
                 onPressed: () {
                   _on(context);
                 },
-                child: Text("presiona")),
-            Text(widget.a2),
-            Text(widget.a3),
-            Text(widget.a4)
+                child: Text(a1)),
           ],
         ),
       ),
@@ -65,6 +38,6 @@ class _Page2State extends State<Page2> {
   }
 
   void _on(BuildContext context) {
-    Navigator.of(context).pushNamed("/page3");
+    Navigator.of(context).pushNamed("/page3", arguments: "argumento pagina 3");
   }
 }

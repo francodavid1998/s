@@ -17,36 +17,16 @@ class MyApp extends StatelessWidget {
       initialRoute: "/page1",
       routes: {
         "/page1": (BuildContext context) {
-          return Page1(
-            a1: 'page1',
-            a2: 'argumento 2',
-            a3: 'argumento 3',
-            a4: 'argumento 4',
-          );
+          return Page1();
         },
         "/page2": (BuildContext context) {
-          return Page2(
-            a1: 'page2',
-            a2: 'argumento 2',
-            a3: 'argumento 3',
-            a4: 'argumento 4',
-          );
+          return Page2();
         },
         "/page3": (BuildContext context) {
-          return Page3(
-            a1: 'page3',
-            a2: 'argumento 2',
-            a3: 'argumento 3',
-            a4: 'argumento 4',
-          );
+          return Page3();
         },
         "/page4": (BuildContext context) {
-          return Page4(
-            a1: 'page4',
-            a2: 'argumento 2',
-            a3: 'argumento 3',
-            a4: 'argumento 4',
-          );
+          return Page4();
         },
       },
     );
