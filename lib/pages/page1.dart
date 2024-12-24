@@ -1,23 +1,32 @@
-//pasar 1 variable por modalroute
+//pasa variables desde el contructor en statefullw
 
 import 'package:flutter/material.dart';
 
-//nose como pasar desde main a page 1 en modalroute
 class Page1 extends StatefulWidget {
-  const Page1({
-    super.key,
-  });
+  final String a1;
+  final bool a2;
+  const Page1({super.key, required this.a1, required this.a2});
 
   @override
   State<Page1> createState() => _Page1State();
 }
 
 class _Page1State extends State<Page1> {
+  late String a1;
+  late bool a2;
+
+  @override
+  void initState() {
+    super.initState();
+    a1 = widget.a1;
+    a2 = widget.a2;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("pagina 1"),
+        title: Text(a1),
       ),
       body: Center(
         child: Column(
@@ -29,6 +38,8 @@ class _Page1State extends State<Page1> {
                   _on(context);
                 },
                 child: Text("presiona")),
+            OutlinedButton(
+                onPressed: _on2, child: Text(a2 ? "prendido" : "apagado"))
           ],
         ),
       ),
@@ -36,6 +47,12 @@ class _Page1State extends State<Page1> {
   }
 
   void _on(BuildContext context) {
-    Navigator.of(context).pushNamed("/page2", arguments: "argumento pagina 2");
+    Navigator.of(context).pushNamed("/2");
+  }
+
+  void _on2() {
+    setState(() {
+      a2 = !a2;
+    });
   }
 }

@@ -1,25 +1,17 @@
-//pasar 1 variable por modalroute
+//pasa variables desde el costructor en statelessw
 
 import 'package:flutter/material.dart';
 
-class Page2 extends StatefulWidget {
-  const Page2({
-    super.key,
-  });
+class Page2 extends StatelessWidget {
+  const Page2({super.key, required this.a1, required this.a2});
+  final String a1;
+  final bool a2;
 
-  @override
-  State<Page2> createState() => _Page2State();
-}
-
-class _Page2State extends State<Page2> {
   @override
   Widget build(BuildContext context) {
-    //si no logra pasar la variable causa error
-    final a1 = ModalRoute.of(context)?.settings.arguments as String;
-
     return Scaffold(
       appBar: AppBar(
-        title: Text("page2"),
+        title: Text(a1),
       ),
       body: Center(
         child: Column(
@@ -30,7 +22,7 @@ class _Page2State extends State<Page2> {
                 onPressed: () {
                   _on(context);
                 },
-                child: Text(a1)),
+                child: Text(a2 ? "presiona" : "")),
           ],
         ),
       ),
@@ -38,6 +30,6 @@ class _Page2State extends State<Page2> {
   }
 
   void _on(BuildContext context) {
-    Navigator.of(context).pushNamed("/page3", arguments: "argumento pagina 3");
+    Navigator.of(context).pushNamed("/3", arguments: "pagina 3");
   }
 }
