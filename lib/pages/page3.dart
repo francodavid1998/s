@@ -1,5 +1,4 @@
-//pasar una variable por modalroute (statelessw) si no se pasa da error
-
+import 'package:fl1/pages/page4.dart';
 import 'package:flutter/material.dart';
 
 class Page3 extends StatelessWidget {
@@ -7,21 +6,36 @@ class Page3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final a1 = ModalRoute.of(context)?.settings.arguments as String;
+    Argumentosp3 argumentospagina3 =
+        ModalRoute.of(context)?.settings.arguments as Argumentosp3;
     return Scaffold(
       appBar: AppBar(
-        title: Text(a1),
+        title: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(argumentospagina3.a1),
+              SizedBox(
+                width: 30,
+              ),
+              OutlinedButton(
+                  onPressed: () {
+                    _on(context);
+                  },
+                  child: Text("presiona"))
+            ],
+          ),
+        ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            OutlinedButton(
-                onPressed: () {
-                  _on(context);
-                },
-                child: Text("presiona")),
+            Text(argumentospagina3.a2.toString()),
+            Text(argumentospagina3.a3),
+            Text(argumentospagina3.a4.toString())
           ],
         ),
       ),
@@ -29,6 +43,20 @@ class Page3 extends StatelessWidget {
   }
 
   void _on(BuildContext context) {
-    Navigator.of(context).pushNamed("/4");
+    Navigator.of(context).pushNamed("/4",
+        arguments: Argumentosp4(a1: "pagina 4", a2: true, a3: 1, a4: false));
   }
+}
+
+class Argumentosp3 {
+  String a1;
+  double a2;
+  String a3;
+  double a4;
+  Argumentosp3({
+    required this.a1,
+    required this.a2,
+    required this.a3,
+    required this.a4,
+  });
 }

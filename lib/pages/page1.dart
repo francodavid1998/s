@@ -1,58 +1,37 @@
-//pasa variables desde el contructor en statefullw
-
+import 'package:fl1/pages/page2.dart';
 import 'package:flutter/material.dart';
 
-class Page1 extends StatefulWidget {
-  final String a1;
-  final bool a2;
-  const Page1({super.key, required this.a1, required this.a2});
-
-  @override
-  State<Page1> createState() => _Page1State();
-}
-
-class _Page1State extends State<Page1> {
-  late String a1;
-  late bool a2;
-
-  @override
-  void initState() {
-    super.initState();
-    a1 = widget.a1;
-    a2 = widget.a2;
-  }
+class Page1 extends StatelessWidget {
+  const Page1({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(a1),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            OutlinedButton(
+        title: Center(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("pagina 1"),
+              SizedBox(
+                width: 30,
+              ),
+              FloatingActionButton(
                 onPressed: () {
                   _on(context);
                 },
-                child: Text("presiona")),
-            OutlinedButton(
-                onPressed: _on2, child: Text(a2 ? "prendido" : "apagado"))
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
   }
 
   void _on(BuildContext context) {
-    Navigator.of(context).pushNamed("/2");
-  }
-
-  void _on2() {
-    setState(() {
-      a2 = !a2;
-    });
+    Navigator.of(context).pushNamed("/2",
+        arguments: Argumentosp2(
+            a1: "pagina 2", a2: false, a3: "argumento 2", a4: "argumento 3"));
   }
 }

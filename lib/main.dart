@@ -12,28 +12,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Material App',
-        //home: Page1()
-        initialRoute: "/1",
-        routes: {
-          "/1": (BuildContext conext) {
-            return Page1(
-              a1: 'pagina 1',
-              a2: true,
-            );
-          },
-          "/2": (BuildContext conext) {
-            return Page2(
-              a1: 'pagina 2',
-              a2: true,
-            );
-          },
-          "/3": (BuildContext conext) {
-            return Page3();
-          },
-          "/4": (BuildContext conext) {
-            return Page4();
-          },
-        });
+      title: 'Material App',
+      //home: Page1()
+      initialRoute: "/1",
+      routes: {
+        "/1": (BuildContext context) {
+          return Page1();
+        },
+        "/2": (BuildContext context) {
+          return Page2();
+        },
+        "/3": (BuildContext context) {
+          return Page3();
+        },
+        "/4": (BuildContext context) {
+          return Page4();
+        }
+      },
+    );
   }
 }
